@@ -1,0 +1,12 @@
+variavel,n_outliers,pct_outliers,minimo,maximo
+acucar_residual,95,9.33,0.9,15.5
+cloretos,71,6.97,0.012,0.611
+sulfatos,41,4.03,0.33,2.0
+acidez_fixa,37,3.63,4.6,15.9
+so2_total,33,3.24,6.0,289.0
+densidade,30,2.95,0.9900700000000001,1.00369
+ph,24,2.36,2.74,4.01
+so2_livre,16,1.57,1.0,68.0
+acidez_volatil,10,0.98,0.12,1.58
+alcool,6,0.59,8.4,14.9
+acido_citrico,1,0.1,0.0,1.0

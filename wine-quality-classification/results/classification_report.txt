@@ -1,0 +1,30 @@
+Regressão Logística
+              precision    recall  f1-score   support
+
+ Baixa/Média      0.924     0.960     0.942       177
+        Alta      0.650     0.481     0.553        27
+
+    accuracy                          0.897       204
+   macro avg      0.787     0.721     0.748       204
+weighted avg      0.888     0.897     0.890       204
+
+KNN
+              precision    recall  f1-score   support
+
+ Baixa/Média      0.918     0.955     0.936       177
+        Alta      0.600     0.444     0.511        27
+
+    accuracy                          0.887       204
+   macro avg      0.759     0.700     0.723       204
+weighted avg      0.876     0.887     0.880       204
+
+Random Forest
+              precision    recall  f1-score   support
+
+ Baixa/Média      0.916     0.983     0.948       177
+        Alta      0.786     0.407     0.537        27
+
+    accuracy                          0.907       204
+   macro avg      0.851     0.695     0.742       204
+weighted avg      0.899     0.907     0.894       204
+
