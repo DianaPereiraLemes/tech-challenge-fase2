@@ -117,6 +117,7 @@ def boxplots_por_classe(df):
     fig.tight_layout()
     return salvar(fig, "06_boxplots_por_classe")
 
+
 def taxas_por_faixa(taxas, media):
     fig, eixos = plt.subplots(1, len(taxas), figsize=(4.3 * len(taxas), 4.3), sharey=True)
     for ax, (col, serie) in zip(eixos, taxas.items()):
@@ -134,6 +135,19 @@ def taxas_por_faixa(taxas, media):
     return salvar(fig, "07_taxa_por_faixa")
 
 
+def correlacao_com_alvo(df):
+    corr = df[VARIAVEIS_ORIGINAIS + [ALVO]].corr()[ALVO].drop(ALVO).sort_values()
+    fig, ax = plt.subplots(figsize=(8, 5))
+    cores = [COR_ALTA if v > 0 else COR_BAIXA for v in corr]
+    barras = ax.barh([rotulo(c) for c in corr.index], corr.values, color=cores)
+    ax.bar_label(barras, labels=[f"{v:+.2f}" for v in corr], padding=3)
+    ax.axvline(0, color="black", linewidth=0.8)
+    limite = abs(corr).max() * 1.3
+    ax.set_xlim(-limite, limite)
+    ax.set(title="Correlação com alta qualidade", xlabel="positivo ajuda, negativo atrapalha")
+    return salvar(fig, "08_correlacao_com_alvo")
+
+
 # ---------------------------- Modelos ----------------------------
 
 def erro_por_k(ks, erros, f1s):
@@ -145,7 +159,7 @@ def erro_por_k(ks, erros, f1s):
     ax.set(title=f"KNN: erro e F1 por valor de k (maior F1 em k={melhor})", xlabel="k", ylabel="")
     ax.set_xticks(ks)
     ax.legend()
-    return salvar(fig, "08_knn_erro_por_k")
+    return salvar(fig, "09_knn_erro_por_k")
 
 
 def comparacao_kfold(scores):
@@ -155,7 +169,7 @@ def comparacao_kfold(scores):
                 palette=CORES_MODELOS[:len(ordem)], legend=False, ax=ax)
     sns.stripplot(data=scores, x="modelo", y="f1", order=ordem, color="black", size=3, ax=ax)
     ax.set(title="F1 em cada fold da validação cruzada (10 folds)", xlabel="", ylabel="F1")
-    return salvar(fig, "09_comparacao_kfold")
+    return salvar(fig, "10_comparacao_kfold")
 
 
 def matrizes_confusao(modelos, x_teste, y_teste):
@@ -167,7 +181,7 @@ def matrizes_confusao(modelos, x_teste, y_teste):
         ax.set_title(nome)
         ax.grid(False)
     fig.tight_layout()
-    return salvar(fig, "10_matrizes_confusao")
+    return salvar(fig, "11_matrizes_confusao")
 
 
 def curvas_roc(modelos, x_teste, y_teste):
@@ -180,7 +194,7 @@ def curvas_roc(modelos, x_teste, y_teste):
     ax.set(title="Curva ROC no teste", xlabel="Taxa de falsos positivos",
            ylabel="Taxa de verdadeiros positivos")
     ax.legend(loc="lower right")
-    return salvar(fig, "11_curvas_roc")
+    return salvar(fig, "12_curvas_roc")
 
 
 def treino_vs_teste(tabela):
@@ -192,7 +206,7 @@ def treino_vs_teste(tabela):
     for barras in ax.containers:
         ax.bar_label(barras, fmt="%.2f", padding=2, fontsize=9)
     ax.set(title="F1 no treino x F1 no teste", xlabel="", ylabel="F1", ylim=(0, 1.1))
-    return salvar(fig, "12_treino_vs_teste")
+    return salvar(fig, "13_treino_vs_teste")
 
 
 def importancia_variaveis(importancias, nome_modelo):
@@ -202,5 +216,5 @@ def importancia_variaveis(importancias, nome_modelo):
     ax.bar_label(barras, labels=[f"{v:.1%}" for v in serie], padding=3, fontsize=9)
     ax.set(title=f"Importância das variáveis ({nome_modelo})", xlabel="Importância (Gini)")
     ax.set_xlim(0, serie.max() * 1.2)
-    return salvar(fig, "13_importancia_variaveis")
+    return salvar(fig, "14_importancia_variaveis")
 
