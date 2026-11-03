@@ -171,7 +171,7 @@ Implicações para o processo de produção:
 ## Entregáveis
 
 - **Código:** este repositório (notebook, scripts da pasta `src`, testes e resultados).
-- **Apresentação executiva:** [`docs/apresentacao_executiva.pdf`](docs/apresentacao_executiva.pdf), com o storytelling da análise exploratória. Também disponível em [PowerPoint](docs/apresentacao_executiva.pptx).
+- **Apresentação executiva:** [`docs/apresentacao_executiva.pptx`](docs/apresentacao_executiva.pptx), com o storytelling da análise exploratória.
 - **Vídeo executivo:** [`docs/video_executivo.mp4`](docs/video_executivo.mp4), com até 5 minutos.
 
 ## Tecnologias
