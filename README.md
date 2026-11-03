@@ -1,7 +1,3 @@
-# Tech Challenge - Fase 2 | Classificação da qualidade de vinhos
-
-Projeto do Tech Challenge da Fase 2 da Pós-Tech em Data Analytics (POSTECH), desenvolvido por Diana Pereira Lemes.
-
 ## Sobre o projeto
 
 A qualidade de um vinho normalmente é avaliada por especialistas, em uma análise sensorial que leva tempo, tem custo e depende da experiência de quem avalia. Este projeto verifica se as medidas físico-químicas coletadas em laboratório durante a produção conseguem antecipar essa avaliação.
